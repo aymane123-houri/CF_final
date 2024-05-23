@@ -17,10 +17,11 @@ jobs:
       - name: Set up JDK 18
         uses: actions/setup-java@v2
         with:
-          java-version: 18
+          java-version: '18'
+          distribution: 'temurin'  # Vous pouvez choisir 'temurin', 'zulu', etc.
 
       - name: Build with Maven
-        run: mvn -B package --file maven/pom.xml | tee maven-output.txt
+        run: mvn -B package --file pom.xml | tee maven-output.txt
         working-directory: maven
 
       - name: Display Maven build output
