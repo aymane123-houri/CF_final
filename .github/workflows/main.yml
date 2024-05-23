@@ -20,17 +20,10 @@ jobs:
           java-version: 18
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml | tee maven-output.txt
-
-      - name: Display Maven build output
-        run: cat maven-output.txt
+        run: mvn -B package --file pom.xml
 
       - name: Run the Java application
-        run: java -cp target/my-app-1.0-SNAPSHOT.jar maven.Hello | tee hello-output.txt
+        run: java -cp target/my-app-1.0-SNAPSHOT.jar maven.Hello
 
-      - name: Display Java application output
-        run: cat hello-output.txt
-
-      - name: List the current directory
+      - name: List the current directory (for debugging)
         run: ls -a
-
