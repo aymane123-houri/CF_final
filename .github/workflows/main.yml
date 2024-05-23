@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v2
@@ -18,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '18'
-          distribution: 'temurin'  # Vous pouvez choisir 'temurin', 'zulu', etc.
+          distribution: 'temurin'
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml | tee maven-output.txt
@@ -26,14 +25,6 @@ jobs:
 
       - name: Display Maven build output
         run: cat maven-output.txt
-        working-directory: maven
-
-      - name: Run tests
-        run: mvn test | tee test-output.txt
-        working-directory: maven
-
-      - name: Display test results
-        run: cat test-output.txt
         working-directory: maven
 
       - name: List the current directory
