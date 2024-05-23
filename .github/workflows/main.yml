@@ -20,10 +20,10 @@ jobs:
           java-version: 18
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file maven/pom.xml
 
       - name: Run the Java application
-        run: java -cp target/my-app-1.0-SNAPSHOT.jar maven.Hello
+        run: java -cp maven/target/my-app-1.0-SNAPSHOT.jar maven.Hello
 
       - name: List the current directory (for debugging)
         run: ls -a
